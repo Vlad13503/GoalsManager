@@ -14,17 +14,15 @@
     </head>
     <body style="background-color: antiquewhite; background-image: url('Images/NewTarget.png'); background-repeat: no-repeat; background-size: 100% 100%;">
         <label style="font-size: xx-large;"><b>New Target</b></label><br><br>
-        <form action="EditGoal.html" method="post">
-            <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="description">Description</label><br>
-            <textarea style="margin: 5;" id="description" name="description" rows="7" cols="22" required></textarea><br><br>
-            <label for="duedate">Due Date</label><br>
-            <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
-            <input type="number" name="quantity" id="quantity" placeholder="Target quantity" required><br><br>
-            <input type="text" name="unit" id="unit" placeholder="Target measurement unit" required><br><br>
-            <input type="hidden" name="goalid" id="goalid">
-            <input style="width: 130" type="submit" value="Create">
-        </form>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="description">Description</label><br>
+        <textarea style="margin: 5;" id="description" name="description" rows="7" cols="22" required></textarea><br><br>
+        <label for="duedate">Due Date</label><br>
+        <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
+        <input type="number" name="quantity" id="quantity" placeholder="Target quantity" required><br><br>
+        <input type="text" name="unit" id="unit" placeholder="Target measurement unit" required><br><br>
+        <input type="hidden" name="goalid" id="goalid">
+        <a href="EditGoal.html"><input style="width: 130" type="button" value="Create"></a>
     </body>
 </html>

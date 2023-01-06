@@ -9,85 +9,85 @@
         <title>Goals Manager - My Profile</title>
     </head>
     <body style="align-content: center; background-image: url('Images/ProfileBackground.jpg'); background-repeat: no-repeat; background-size: 100% 100%;">
-        <form action="HomePage.html" method="post">
-            <table style="margin-left: auto; margin-right: auto; margin-top: 200;">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th style="font-size: xx-large; margin: auto">My Profile</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
+        <table style="margin-left: auto; margin-right: auto; margin-top: 200;">
+            <thead>
                 <tr>
-                    <td><label for="username">Username</label></td>
-                    <td><input type="text" id="username" name="username" size="30" required></td>
+                    <th></th>
+                    <th style="font-size: xx-large; margin: auto">My Profile</th>
                 </tr>
+            </thead>
 
+            <tbody>
+
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td><input type="text" id="username" name="username" size="30" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" id="password" name="password" minlength="5" maxlength="15" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td><input type="text" id="address" name="address"></td>
+            </tr>
+
+            <tr>
+                <td><label for="country">Country</label></td>
+                <td><input type="text" id="country" naem="country"></td>
+            </tr>
+
+            <tr>
+                <td><label for="zip">ZIP Code</label></td>
+                <td><input type="text" id="zip" name="zip"></td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+
+            <tr>
+                <td><label>Sex</label></td>
+
+                <td style="padding: 10;">
+                    <input style="width: 10; margin: auto;" type="radio" id="male" name="sex" value="male" required>
+                    <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input style="width: 10; margin: auto" type="radio" id="female" name="sex" value="female" required>
+                    <label for="female">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input style="width: 10; margin: auto" type="radio" id="other" name="sex" value="other" required>
+                    <label for="other">Other</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="language">Language</label></td>
+                <td><input type="text" id="language" name="language"></td>
+            </tr>
+
+            <tr>
+                <td><label for="about">About</label></td>
+                <td><textarea style="margin: 10; width: 200;" id="about" name="about" rows="7" cols="20"></textarea></td>
+            </tr>
+            </tbody>
+
+            <tfoot>
                 <tr>
-                    <td><label for="password">Password</label></td>
-                    <td><input type="password" id="password" name="password" minlength="5" maxlength="15" required></td>
-                </tr>
-
-                <tr>
-                    <td><label for="name">Name</label></td>
-                    <td><input type="text" id="name" name="name"></td>
-                </tr>
-
-                <tr>
-                    <td><label for="address">Address</label></td>
-                    <td><input type="text" id="address" name="address"></td>
-                </tr>
-
-                <tr>
-                    <td><label for="country">Country</label></td>
-                    <td><input type="text" id="country" naem="country"></td>
-                </tr>
-
-                <tr>
-                    <td><label for="zip">ZIP Code</label></td>
-                    <td><input type="text" id="zip" name="zip"></td>
-                </tr>
-
-                <tr>
-                    <td><label for="email">Email</label></td>
-                    <td><input type="email" id="email" name="email" required></td>
-                </tr>
-
-                <tr>
-                    <td><label>Sex</label></td>
-
-                    <td style="padding: 10;">
-                        <input style="width: 10; margin: auto;" type="radio" id="male" name="sex" value="male" required>
-                        <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                        <input style="width: 10; margin: auto" type="radio" id="female" name="sex" value="female" required>
-                        <label for="female">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                        <input style="width: 10; margin: auto" type="radio" id="other" name="sex" value="other" required>
-                        <label for="other">Other</label>
+                    <td></td>
+                    <td style="padding-left: 35;">
+                        <a href="HomePage.html"><input type="button" value="Save" style="height: 30; width: 130;"></a>
                     </td>
                 </tr>
-
-                <tr>
-                    <td><label for="language">Language</label></td>
-                    <td><input type="text" id="language" name="language"></td>
-                </tr>
-
-                <tr>
-                    <td><label for="about">About</label></td>
-                    <td><textarea style="margin: 10; width: 200;" id="about" name="about" rows="7" cols="20"></textarea></td>
-                </tr>
-                </tbody>
-
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td style="padding-left: 35;"><input type="submit" value="Save" style="height: 30; width: 130;"></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </form>
+            </tfoot>
+        </table>
     </body>
 </html>
