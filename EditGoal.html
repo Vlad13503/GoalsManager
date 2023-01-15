@@ -4,6 +4,26 @@
             body {
                 text-align: center;
                 margin-top: 30;
+                background-image: url('Images/EditGoal.png');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            fieldset {
+                margin-left: 40%;
+                width: 20%;
+                border-width: 5;
+                background-color:rgba(250, 235, 215, 0.600);
+            }
+            label {
+                font-weight: bold;
+            }
+            .leftButton {
+                width: 35%;
+                margin-right: 11%;
+            }
+            .rightButton {
+                width: 35%;
+                margin-left: 11%;
             }
             input {
                 margin: 5;
@@ -12,38 +32,38 @@
         </style>
         <title>Goals Manager - Edit Goal</title>
     </head>
-    <body style="background-image: url('Images/EditGoal.png'); background-repeat: no-repeat; background-size: 100% 100%;">
-        <fieldset style="margin-left: 40%; width: 20%; border-width: 5; background-color:rgba(250, 235, 215, 0.582);">
+    <body>
+        <fieldset>
             <legend style="text-align: left; font-size: x-large;"><b>Goal Details</b></legend>
             <label for="name">Name</label><br>
             <input type="text" id="name" name="name" required><br><br>
             <label for="description">Description</label><br>
-            <textarea style="margin: 5;" id="description" name="description" rows="7" cols="22" required></textarea><br><br>
+            <textarea style="margin: 5;" id="description" name="description" rows="7" cols="24" required></textarea><br><br>
             <label for="duedate">Due Date</label><br>
             <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
             <label>Progress</label><br>
             <progress style="width: 90%;" min="0" max="100" value="0"></progress><br><br>
-            <input style="width: 35%; margin-right: 11%;" type="button" value="Delete">
-            <input style="width: 35%; margin-left: 11%;" type="button" value="Save">
+            <input class="leftButton" type="button" value="Delete">
+            <input class="rightButton" type="button" value="Save">
         </fieldset><br>
         <a style="align-items: center;" href="NewTarget.html">
             <input type="hidden" name="goalid" id="goalid"/>
-            <input style="font-size: large; margin-left: 2%;" type="button" value="Add Target"/>
+            <input style="font-size: large; margin-left: 3%; border-radius: 5px; padding: 5px 20px; background-color: antiquewhite;" type="button" value="Add Target"/>
         </a>
         <hr>
-        <fieldset style="margin-left: 40%; width: 20%; border-width: 5; background-color:rgba(250, 235, 215, 0.582);">
+        <fieldset>
             <legend style="text-align: left; font-size: x-large;"><b>Static Fake Target 1</b></legend>
-            <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="description">Description</label><br>
-            <textarea style="margin: 5;" id="description" name="description" rows="7" cols="22" required></textarea><br><br>
-            <label for="duedate">Due Date</label><br>
-            <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
+            <label for="fakeName">Name</label><br>
+            <input type="text" id="fakeName" name="name" required><br><br>
+            <label for="fakeDescription">Description</label><br>
+            <textarea style="margin: 5;" id="fakeDescription" name="description" rows="7" cols="24" required></textarea><br><br>
+            <label for="fakeDuedate">Due Date</label><br>
+            <input type="date" name="duedate" id="fakeDuedate" min="2022-01-05" max="2024-01-01" required><br><br>
             <input type="number" name="quantity" id="quantity" placeholder="Target quantity" required><br><br>
             <input type="text" name="unit" id="unit" placeholder="Target measurement unit" required><br><br>
             <div style="margin-right: 30%;">
-                <input style="width: 10%; margin-right: 0%;" type="checkbox" id="completed" name="completed">
-                <label for="completed">Completed</label><br><Br>
+                <input style="width: 10%; margin-left: 30%" type="checkbox" id="completed" name="completed">
+                <label for="completed">Completed</label><br><br>
             </div>
             <input style="width: 35%; margin-right: 11%;" type="button" value="Delete">
             <input style="width: 35%; margin-left: 11%;" type="button" value="Save">

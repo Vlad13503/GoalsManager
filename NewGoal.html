@@ -4,22 +4,39 @@
             body {
                 text-align: center;
                 margin-top: 30;
+                background-color: antiquewhite;
+                background-image: url('Images/NewGoal.svg');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
             }
             input {
                 margin: 5;
                 width: 200;
             }
+            label {
+                font-weight: bold;
+            }
+            .button {
+                background-color: darkgoldenrod;
+                color: white;
+                text-decoration: none;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 1.18rem;
+                font-weight: bold;
+                display: inline-block;
+            }
         </style>
         <title>Goals Manager - Create Goal</title>
     </head>
-    <body style="background-color: antiquewhite; background-image: url('Images/NewGoal.svg'); background-repeat: no-repeat; background-size: 100% 100%;">
+    <body>
         <label style="font-size: xx-large;"><b>New Goal</b></label><br><br>
         <label for="name">Name</label><br>
         <input type="text" id="name" name="name" required><br><br>
         <label for="description">Description</label><br>
-        <textarea style="margin: 5;" id="description" name="description" rows="7" cols="22" required></textarea><br><br>
+        <textarea style="margin: 5;" id="description" name="description" rows="7" cols="24" required></textarea><br><br>
         <label for="duedate">Due Date</label><br>
         <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
-        <a href="HomePage.html"><input style="width: 130" type="button" value="Create"></a>
+        <a href="HomePage.html" class="button">Create</a>
     </body>
 </html>

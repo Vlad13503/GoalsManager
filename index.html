@@ -4,16 +4,35 @@
             body {
                 text-align: center;
                 margin-top: 10%;
+                background-color: rgb(208, 233, 255);
+            }
+            .logoName {
+                color: rgb(25, 61, 221);
+                font-size: xxx-large;
+            }
+            img {
+                border-radius: 50%;
+                width: 25%;
+            }
+            .button {
+                background-color: blue;
+                color: white;
+                text-decoration: none;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 1.18rem;
+                font-weight: bold;
+                display: inline-block;
             }
         </style>
         <title>Goals Manager - LogIn</title>
     </head>
-    <body style="background-color: rgb(208, 233, 255);">
-        <label style="color: rgb(25, 61, 221); font-size: xxx-large;">Goals Manager</label><br>
-        <img style="border-radius: 50%;" src="Images/Logo.png" alt="Goal Manager Logo" width="25%"><br><br><br>
+    <body>
+        <label class="logoName">Goals Manager</label><br>
+        <img src="Images/Logo.png" alt="Goal Manager Logo"><br><br><br>
         <input type="text" id="username" name="username" placeholder="username" required><br><br>
         <input type="password" id="password" name="password" placeholder="password" minlength="5" maxlength="15" required><br><br>
-        <a href="HomePage.html"><input type="button" value="Sign In"></a>
+        <a href="HomePage.html" class="button">Sign In</a>
         <br><br>or<br><br>
         <a href="MyProfile.html"><b>Sign Up</b></a>
     </body>

@@ -1,19 +1,106 @@
 <html>
     <head>
         <style>
-            input {
+            input, textarea{
                 margin: 10;
                 width: 200;
             }
+            label {
+                font-weight: bold;
+            }
+            table {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+            th {
+                font-size: xx-large;
+                margin: auto;
+            }
+            .radio {
+                width: 10;
+                margin: auto;
+            }
+            .button {
+                background-color: white;
+                color: blue;
+                text-decoration: none;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 1.18rem;
+                font-weight: bold;
+                display: inline-block;
+            }
         </style>
+
+        <script>
+            window.onload = function() {
+                document.getElementById("save").onclick = validateProfile;
+                document.getElementById("username").onkeyup = resetBorder;
+                document.getElementById("password").onkeyup = resetBorder;
+                document.getElementById("email").onkeyup = resetBorderEmail;
+                document.getElementById("male").onclick = resetRadioColor;
+                document.getElementById("female").onclick = resetRadioColor;
+                document.getElementById("other").onclick = resetRadioColor;
+            }
+            function validateProfile(event) {
+                let username = document.getElementById("username");
+                let continueNav = true;
+                if(username.value === "") {
+                    username.style.borderWidth = 1.5;
+                    username.style.borderColor = "red";
+                    continueNav = false;
+                }
+                let password = document.getElementById("password");
+                if(password.value === "") {
+                    password.style.borderWidth = 1.5;
+                    password.style.borderColor = "red";
+                    continueNav = false;
+                }
+                let email = document.getElementById("email");
+                if(email.value === "" || !(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.value))) {
+                    email.style.borderWidth = 1.5;
+                    email.style.borderColor = "red";
+                    continueNav = false;
+                }
+                let male = document.getElementById("male");
+                let female = document.getElementById("female");
+                let other = document.getElementById("other");
+                if(!male.checked && !female.checked && !other.checked) {
+                    male.parentElement.style.color = "red";
+                    continueNav = false;
+                }
+                return continueNav;
+            }
+
+            function resetBorder(event) {
+                if(/[\w-\.]/.test(event.key)) {
+                    event.currentTarget.style.borderWidth = 1;
+                    event.currentTarget.style.borderColor = "";
+                }
+            }
+
+            function resetBorderEmail(event) {
+                if(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(event.currentTarget.value)) {
+                    event.currentTarget.style.borderWidth = 1;
+                    event.currentTarget.style.borderColor = "";
+                }
+            }
+
+            function resetRadioColor(event) {
+                event.currentTarget.parentElement.style.color = "";
+            }
+        </script>
+        
         <title>Goals Manager - My Profile</title>
     </head>
-    <body style="align-content: center; background-image: url('Images/ProfileBackground.jpg'); background-repeat: no-repeat; background-size: 100% 100%;">
-        <table style="margin-left: auto; margin-right: auto; margin-top: 200;">
+    <body style="background-image: url('Images/ProfileBackground.jpg'); background-repeat: no-repeat; background-size: 100% 100%;">
+        <table>
             <thead>
                 <tr>
                     <th></th>
-                    <th style="font-size: xx-large; margin: auto">My Profile</th>
+                    <th>My Profile</th>
                 </tr>
             </thead>
 
@@ -21,12 +108,12 @@
 
             <tr>
                 <td><label for="username">Username</label></td>
-                <td><input type="text" id="username" name="username" size="30" required></td>
+                <td><input type="text" id="username" name="username" size="30" placeholder="Required" required></td>
             </tr>
 
             <tr>
                 <td><label for="password">Password</label></td>
-                <td><input type="password" id="password" name="password" minlength="5" maxlength="15" required></td>
+                <td><input type="password" id="password" name="password" minlength="5" maxlength="15" placeholder="Required" required></td>
             </tr>
 
             <tr>
@@ -51,20 +138,20 @@
 
             <tr>
                 <td><label for="email">Email</label></td>
-                <td><input type="email" id="email" name="email" required></td>
+                <td><input type="email" id="email" name="email" placeholder="Required" required></td>
             </tr>
 
             <tr>
                 <td><label>Sex</label></td>
 
-                <td style="padding: 10;">
-                    <input style="width: 10; margin: auto;" type="radio" id="male" name="sex" value="male" required>
+                <td style="padding: 10; ">
+                    <input class="radio" type="radio" id="male" name="sex" value="male" required>
                     <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <input style="width: 10; margin: auto" type="radio" id="female" name="sex" value="female" required>
+                    <input class="radio" type="radio" id="female" name="sex" value="female" required>
                     <label for="female">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <input style="width: 10; margin: auto" type="radio" id="other" name="sex" value="other" required>
+                    <input class="radio" type="radio" id="other" name="sex" value="other" required>
                     <label for="other">Other</label>
                 </td>
             </tr>
@@ -76,15 +163,15 @@
 
             <tr>
                 <td><label for="about">About</label></td>
-                <td><textarea style="margin: 10; width: 200;" id="about" name="about" rows="7" cols="20"></textarea></td>
+                <td><textarea id="about" name="about" rows="7" cols="20"></textarea></td>
             </tr>
             </tbody>
 
             <tfoot>
                 <tr>
                     <td></td>
-                    <td style="padding-left: 35;">
-                        <a href="HomePage.html"><input type="button" value="Save" style="height: 30; width: 130;"></a>
+                    <td style="padding-left: 25%; padding-right: 25%;">
+                        <a href="HomePage.html" class="button" id="save">Save</a>
                     </td>
                 </tr>
             </tfoot>

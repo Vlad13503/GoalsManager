@@ -5,9 +5,23 @@
                 text-align: center;
                 margin-top: 30;
             }
+            label {
+                font-weight: bold;
+            }
             input {
                 margin: 5;
                 width: 200;
+            }
+            .button {
+                background-color: darkgoldenrod;
+                color: white;
+                text-decoration: none;
+                width: 100;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 1.18rem;
+                font-weight: bold;
+                display: inline-block;
             }
         </style>
         <title>Goals Manager - Create Target</title>
@@ -17,12 +31,12 @@
         <label for="name">Name</label><br>
         <input type="text" id="name" name="name" required><br><br>
         <label for="description">Description</label><br>
-        <textarea style="margin: 5;" id="description" name="description" rows="7" cols="22" required></textarea><br><br>
+        <textarea style="margin: 5;" id="description" name="description" rows="7" cols="24" required></textarea><br><br>
         <label for="duedate">Due Date</label><br>
         <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
         <input type="number" name="quantity" id="quantity" placeholder="Target quantity" required><br><br>
         <input type="text" name="unit" id="unit" placeholder="Target measurement unit" required><br><br>
         <input type="hidden" name="goalid" id="goalid">
-        <a href="EditGoal.html"><input style="width: 130" type="button" value="Create"></a>
+        <a href="EditGoal.html" class="button">Create</a>
     </body>
 </html>
