@@ -24,6 +24,71 @@
                 display: inline-block;
             }
         </style>
+
+<script>
+    window.onload = function () {
+        document.getElementById("create").onclick = checkNotEmpty;
+        document.getElementById("name").onkeyup = resetBorder;
+        document.getElementById("description").onkeyup = resetBorder;
+        let dueDate = document.getElementById("duedate");
+        let date = new Date();
+        dueDate.min = date.toISOString().substring(0, date.toISOString().indexOf('T'));
+        date.setFullYear(date.getFullYear() + 1);
+        dueDate.max = date.toISOString().substring(0, date.toISOString().indexOf('T'));
+        dueDate.onkeyup = resetBorder;
+        dueDate.onchange = resetBorder;
+        document.getElementById("quantity").onkeyup = resetNumericBorder;
+        document.getElementById("unit").onkeyup = resetBorder;
+    }
+    function checkNotEmpty() {
+        let name = document.getElementById("name");
+        let description = document.getElementById("description");
+        let quantity = document.getElementById("quantity");
+        let unit = document.getElementById("unit");
+        let dueDate = document.getElementById("duedate");
+        let continueNav = true;
+        if(name.value === "") {
+            name.style.borderColor = "red";
+            name.style.borderWidth = 2;
+            continueNav = false;
+        }
+        if(description.value === "") {
+            description.style.borderColor = "red";
+            description.style.borderWidth = 2;
+            continueNav = false;
+        }
+        if(quantity.value === "") {
+            quantity.style.borderColor = "red";
+            quantity.style.borderWidth = 2;
+            continueNav = false;
+        }
+        if(unit.value === "") {
+            unit.style.borderColor = "red";
+            unit.style.borderWidth = 2;
+            continueNav = false;
+        }
+        let crtDueDate = new Date(dueDate.value);
+        if(dueDate.value === "" || crtDueDate < new Date(dueDate.min) || crtDueDate > new Date(dueDate.max)) {
+            dueDate.style.borderColor = "red";
+            dueDate.style.borderWidth = 2;
+            continueNav = false;
+        }
+        return continueNav;
+    }
+    function resetBorder(event) {
+        if(/[\w-\.]/.test(event.key)) {
+            event.currentTarget.style.borderWidth = 1;
+            event.currentTarget.style.borderColor = "";
+        }
+    }
+    function resetNumericBorder(event) {
+        if(/\d/.test(event.key)) {  
+            event.currentTarget.style.borderWidth = 1;
+            event.currentTarget.style.borderColor = "";
+        }
+    }
+</script>
+
         <title>Goals Manager - Create Target</title>
     </head>
     <body style="background-color: antiquewhite; background-image: url('Images/NewTarget.png'); background-repeat: no-repeat; background-size: 100% 100%;">
@@ -37,6 +102,6 @@
         <input type="number" name="quantity" id="quantity" placeholder="Target quantity" required><br><br>
         <input type="text" name="unit" id="unit" placeholder="Target measurement unit" required><br><br>
         <input type="hidden" name="goalid" id="goalid">
-        <a href="EditGoal.html" class="button">Create</a>
+        <a href="EditGoal.html" class="button" id="create">Create</a>
     </body>
 </html>

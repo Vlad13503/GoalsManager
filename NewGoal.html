@@ -27,6 +27,51 @@
                 display: inline-block;
             }
         </style>
+
+    <script>
+        window.onload = function () {
+            document.getElementById("create").onclick = checkNotEmpty;
+            document.getElementById("name").onkeyup = resetBorder;
+            document.getElementById("description").onkeyup = resetBorder;
+            let dueDate = document.getElementById("duedate");
+            let date = new Date();
+            dueDate.min = date.toISOString().substring(0, date.toISOString().indexOf('T'));
+            date.setFullYear(date.getFullYear() + 1);
+            dueDate.max = date.toISOString().substring(0, date.toISOString().indexOf('T'));
+            dueDate.onkeyup = resetBorder;
+            dueDate.onchange = resetBorder;
+        }
+        function checkNotEmpty() {
+            let name = document.getElementById("name");
+            let description = document.getElementById("description");
+            let dueDate = document.getElementById("duedate");
+            let continueNav = true;
+            if(name.value === "") {
+                name.style.borderColor = "red";
+                name.style.borderWidth = 1.5;
+                continueNav = false;
+            }
+            if(description.value === "") {
+                description.style.borderColor = "red";
+                description.style.borderWidth = 1.5;
+                continueNav = false;
+            }
+            let crtDueDate = new Date(dueDate.value);
+            if(dueDate.value === "" || crtDueDate < new Date(dueDate.min) || crtDueDate > new Date(dueDate.max)) {
+                dueDate.style.borderColor = "red";
+                dueDate.style.borderWidth = 1.5;
+                continueNav = false;
+            }
+            return continueNav;
+        }
+        function resetBorder(event) {
+            if(/[\w-\.]/.test(event.key)) {
+                event.currentTarget.style.borderWidth = 1;
+                event.currentTarget.style.borderColor = "";
+            }
+        }
+    </script>
+
         <title>Goals Manager - Create Goal</title>
     </head>
     <body>
@@ -36,7 +81,7 @@
         <label for="description">Description</label><br>
         <textarea style="margin: 5;" id="description" name="description" rows="7" cols="24" required></textarea><br><br>
         <label for="duedate">Due Date</label><br>
-        <input type="date" name="duedate" id="duedate" min="2022-01-05" max="2024-01-01" required><br><br>
-        <a href="HomePage.html" class="button">Create</a>
+        <input type="date" name="duedate" id="duedate" required><br><br>
+        <a href="HomePage.html" class="button" id="create">Create</a>
     </body>
 </html>

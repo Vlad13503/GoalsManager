@@ -25,6 +25,39 @@
                 display: inline-block;
             }
         </style>
+
+        <script>
+            window.onload = function () {
+                document.getElementById("signIn").onclick = checkNotEmpty;
+                document.getElementById("username").onkeyup = resetBorder;
+                document.getElementById("username").value = "";
+                document.getElementById("password").onkeyup = resetBorder;
+                document.getElementById("password").value = "";
+            }
+            function checkNotEmpty() {
+                let username = document.getElementById("username");
+                let password = document.getElementById("password");
+                let continueNav = true;
+                if(username.value === "") {
+                    username.style.borderColor = "red";
+                    username.style.borderWidth = 1.5;
+                    continueNav = false;
+                }
+                if(password.value === "") {
+                    password.style.borderColor = "red";
+                    password.style.borderWidth = 1.5;
+                    continueNav = false;
+                }
+                return continueNav;
+            }
+            function resetBorder(event) {
+                if(/[\w-\.]/.test(event.key)) {
+                    event.currentTarget.style.borderWidth = 1;
+                    event.currentTarget.style.borderColor = "";
+                }
+            }
+        </script>
+         
         <title>Goals Manager - LogIn</title>
     </head>
     <body>
@@ -32,7 +65,7 @@
         <img src="Images/Logo.png" alt="Goal Manager Logo"><br><br><br>
         <input type="text" id="username" name="username" placeholder="username" required><br><br>
         <input type="password" id="password" name="password" placeholder="password" minlength="5" maxlength="15" required><br><br>
-        <a href="HomePage.html" class="button">Sign In</a>
+        <a href="HomePage.html" class="button" id="signIn">Sign In</a>
         <br><br>or<br><br>
         <a href="MyProfile.html"><b>Sign Up</b></a>
     </body>
